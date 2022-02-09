@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.licentamanagementmeditatii.DashboardController">
+   <children>
+      <Button layoutX="14.0" layoutY="561.0" mnemonicParsing="false" text="Back" />
+      <Button layoutX="734.0" layoutY="561.0" mnemonicParsing="false" text="LogOut" />
+      <Button fx:id="button_manage_students" layoutX="53.0" layoutY="498.0" mnemonicParsing="false" text="Manage Students" />
+      <HBox layoutX="62.0" layoutY="52.0" prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Label fx:id="label_welcome" alignment="CENTER" prefHeight="102.0" prefWidth="200.0" text="Month Income" />
+         </children>
+      </HBox>
+      <HBox layoutX="300.0" layoutY="52.0" prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Label fx:id="label_debt" alignment="CENTER" prefHeight="100.0" prefWidth="200.0" text="Debt" />
+         </children>
+      </HBox>
+      <HBox layoutX="562.0" layoutY="52.0" prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Label fx:id="label_paid" alignment="CENTER" prefHeight="105.0" prefWidth="200.0" text="Paid" />
+         </children>
+      </HBox>
+      <Label layoutX="148.0" layoutY="29.0" text="Monthly" />
+      <Label layoutX="386.0" layoutY="29.0" text="Debt" />
+      <Label layoutX="648.0" layoutY="29.0" text="Paid" />
+      <HBox layoutX="62.0" layoutY="200.0" prefHeight="215.0" prefWidth="698.0">
+         <children>
+            <TableView prefHeight="215.0" prefWidth="700.0">
+              <columns>
+                <TableColumn prefWidth="75.0" text="C1" />
+                <TableColumn prefWidth="75.0" text="C2" />
+              </columns>
+            </TableView>
+         </children>
+      </HBox>
+      <Label layoutX="121.0" layoutY="183.0" text="Pending Payments" />
+   </children>
+</AnchorPane>

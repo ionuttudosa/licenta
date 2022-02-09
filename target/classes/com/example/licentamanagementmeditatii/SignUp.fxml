@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.licentamanagementmeditatii.SignUpController">
+   <children>
+      <AnchorPane prefHeight="600.0" prefWidth="226.0" />
+      <AnchorPane prefHeight="425.0" prefWidth="619.0">
+         <children>
+            <Button fx:id="button_signup" layoutX="272.0" layoutY="513.0" mnemonicParsing="false" text="Sign Up" />
+            <Button fx:id="button_back" layoutX="14.0" layoutY="561.0" mnemonicParsing="false" text="Back" />
+            <PasswordField fx:id="tf_password" layoutX="227.0" layoutY="311.0" promptText="Parola" />
+            <PasswordField fx:id="tf_confirm_password" layoutX="227.0" layoutY="351.0" promptText="Confirmare Parola" />
+            <Label layoutX="201.0" layoutY="51.0" text="Bine ati venit la pagina de inregistrare" />
+            <TextField fx:id="tf_username" layoutX="227.0" layoutY="114.0" promptText="Nume Utilizator" />
+            <TextField fx:id="tf_nume" layoutX="227.0" layoutY="150.0" promptText="Nume Familie" />
+            <TextField fx:id="tf_prenume" layoutX="227.0" layoutY="187.0" promptText="Prenume" />
+            <TextField fx:id="tf_email" layoutX="227.0" layoutY="226.0" promptText="Email" />
+            <TextField fx:id="tf_telefon" layoutX="227.0" layoutY="263.0" promptText="Nr. Telefon" />
+         </children></AnchorPane>
+   </children>
+</HBox>

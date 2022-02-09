@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.licentamanagementmeditatii.LandingController">
+   <children>
+      <AnchorPane prefHeight="600.0" prefWidth="450.0">
+         <children>
+            <Button fx:id="button_signup" layoutX="14.0" layoutY="561.0" mnemonicParsing="false" text="Sign up" />
+         </children></AnchorPane>
+      <AnchorPane prefHeight="600.0" prefWidth="800.0">
+         <children>
+            <Button fx:id="button_login" layoutX="263.0" layoutY="480.0" mnemonicParsing="false" text="Login" />
+            <Label layoutX="274.0" layoutY="208.0" text="Label" />
+            <PasswordField fx:id="tf_password" layoutX="214.0" layoutY="406.0" promptText="Password" />
+            <TextField fx:id="tf_username" layoutX="215.0" layoutY="360.0" promptText="Username" />
+         </children></AnchorPane>
+   </children>
+</HBox>
