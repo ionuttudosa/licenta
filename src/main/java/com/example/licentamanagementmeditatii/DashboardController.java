@@ -12,6 +12,8 @@ import java.util.ResourceBundle;
 public class DashboardController implements Initializable {
     @FXML
     private Button button_manage_students;
+    @FXML
+    private Button button_manage_sessions;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -20,6 +22,12 @@ public class DashboardController implements Initializable {
             @Override
             public void handle(ActionEvent event) {
                 Utils.changeScene(event, "Students.fxml","Log in!", null);
+            }
+        });
+        button_manage_sessions.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                Utils.changeScene(event, "Sessions.fxml", "Sessions",null);
             }
         });
 

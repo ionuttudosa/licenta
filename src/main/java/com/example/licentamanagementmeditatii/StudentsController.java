@@ -178,7 +178,7 @@ public class StudentsController implements Initializable {
                     String value4 = tf_nume.getText();
                     String value5 = tf_prenume.getText();
                     if(!(value2==null) && !(value2.contains(" ")) && !(value3==null )&& !(value3.contains(" "))){
-                        String sql = "UPDATE users set  nume='"+value2+"',prenume='"+value3+"',email='"+value4+"',telefon='"+value5+"' where user_id= '"+value1+"' ";
+                        String sql = "UPDATE student set  nume='"+value2+"',prenume='"+value3+"',email='"+value4+"',telefon='"+value5+"' where id= '"+value1+"' ";
                         pst = conn.prepareStatement(sql);
                         pst.execute();
                         JOptionPane.showMessageDialog(null, "User actualizat");

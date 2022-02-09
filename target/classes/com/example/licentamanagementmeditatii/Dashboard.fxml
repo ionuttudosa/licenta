@@ -37,5 +37,6 @@
          </children>
       </HBox>
       <Label layoutX="121.0" layoutY="183.0" text="Pending Payments" />
+      <Button fx:id="button_manage_sessions" layoutX="622.0" layoutY="511.0" mnemonicParsing="false" text="Manage Sessions" />
    </children>
 </AnchorPane>
