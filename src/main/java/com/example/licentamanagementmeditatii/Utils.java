@@ -110,7 +110,7 @@ public class Utils {
         ResultSet resultSet = null;
         try {
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/licenta_manag_meditatii", "root", "Abc123ABC?!!");
-            preparedStatement = connection.prepareStatement("SELECT password FROM meditatori WHERE username = ?");
+            preparedStatement = connection.prepareStatement("SELECT ID,password FROM meditatori WHERE username = ?");
             preparedStatement.setString(1, username);
             resultSet = preparedStatement.executeQuery();
 
@@ -123,6 +123,9 @@ public class Utils {
                 while (resultSet.next()) {
                     String retrievedPassword = resultSet.getString("password");
                     if (retrievedPassword.equals(password)) {
+                        int id = resultSet.getInt("ID");
+                        System.out.println(id);
+                        CurrentUser.id = id;
                         changeScene(event,"Dashboard.fxml", "Bine ati venit "+ username+"!",  username);
                     } else {
                         System.out.println("parola incorecta");
@@ -179,7 +182,8 @@ public class Utils {
         Connection conn = ConnectDb();
         ObservableList<UseriCati> list = FXCollections.observableArrayList();
         try{
-            PreparedStatement ps = conn.prepareStatement("select * from student");
+            PreparedStatement ps = conn.prepareStatement("select * from student where idMeditator = ?");
+            ps.setInt(1,CurrentUser.id);
             ResultSet rs = ps.executeQuery();
             while (rs.next()){
                 list.add(new UseriCati(
@@ -213,11 +217,12 @@ public class Utils {
                 alert.setContentText("You cannot use this username");
                 alert.show();
             } else {
-                psInsert = connection.prepareStatement("INSERT INTO student (nume, prenume, email, telefon) VALUES (?, ?, ?, ?)");
+                psInsert = connection.prepareStatement("INSERT INTO student (nume, prenume, email, telefon, idMeditator) VALUES (?, ?, ?, ?, ?)");
                 psInsert.setString(1, nume);
                 psInsert.setString(2, prenume);
                 psInsert.setString(3, email);
                 psInsert.setString(4, telefon);
+             //   psInsert.setInt(5,);
                 psInsert.execute();
                 JOptionPane.showMessageDialog(null, "Userul a fost adaugat");
             }
