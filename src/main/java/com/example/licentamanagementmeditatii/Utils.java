@@ -198,6 +198,25 @@ public class Utils {
         return list;
     }
 
+    public static void AddSession(Session session){
+        try {
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/licenta_manag_meditatii", "root", "Abc123ABC?!!");
+            PreparedStatement ps = connection.prepareStatement("insert into meditatii (materie, ID_meditator, ID_student, pret_per_ora, durata, data) values (?, ?, ?, ?, ?, ?)");
+            ps.setString(1, session.getMaterie());
+            ps.setInt(2,session.getIdMeditator());
+            ps.setInt(3,session.getIdStudent());
+            ps.setInt(4, session.getPret_per_ora());
+            ps.setInt(5,session.getDurata());
+            ps.setDate(6,session.getDate());
+            ps.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
+
+    }
+
 
     //tranformam pe asta in defapt management studenti
     public static void CheckAddUser(ActionEvent event, String email, String telefon, String nume, String prenume){
