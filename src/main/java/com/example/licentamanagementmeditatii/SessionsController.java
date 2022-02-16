@@ -28,7 +28,6 @@ public class SessionsController implements Initializable {
     private Button button_update;
     @FXML
     private Button button_delete;
-
     @FXML
     private TextField tf_materie;
     @FXML

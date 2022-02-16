@@ -3,13 +3,13 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="801.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.licentamanagementmeditatii.StudentsController">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="801.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.licentamanagementmeditatii.StudentsController">
     <children>
-        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0">
+        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0">
             <children>
-                <Button fx:id="button_back" layoutX="18.0" layoutY="467.0" mnemonicParsing="false" style="-fx-background-color: #FDB750;" text="Back" />
-                <Button fx:id="button_logout" layoutX="732.0" layoutY="467.0" mnemonicParsing="false" style="-fx-background-color: #FDB750;" text="Logout" />
-                <TableView fx:id="table_users" layoutX="191.0" layoutY="70.0" onMouseClicked="#getSelected" prefHeight="383.0" prefWidth="595.0">
+                <Button fx:id="button_back" layoutX="18.0" layoutY="561.0" mnemonicParsing="false" style="-fx-background-color: #FDB750;" text="Back" />
+                <Button fx:id="button_logout" layoutX="732.0" layoutY="561.0" mnemonicParsing="false" style="-fx-background-color: #FDB750;" text="Logout" />
+                <TableView fx:id="table_users" layoutX="191.0" layoutY="36.0" onMouseClicked="#getSelected" prefHeight="494.0" prefWidth="595.0" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: black;">
                     <columns>
                         <TableColumn fx:id="col_db_user_id" prefWidth="49.0" text="ID" />
                         <TableColumn fx:id="col_db_nume" prefWidth="91.0" text="Nume" />
@@ -18,15 +18,15 @@
                         <TableColumn fx:id="col_db_telefon" prefWidth="109.0" text="telefon" />
                     </columns>
                 </TableView>
-                <Button fx:id="button_delete" layoutX="18.0" layoutY="415.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="149.0" style="-fx-background-color: red;" text="Stergere" />
-                <Button id="button_update" fx:id="button_update" layoutX="18.0" layoutY="380.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="149.0" style="-fx-background-color: yellow;" text="Actualizare" />
-                <Button fx:id="button_add" layoutX="18.0" layoutY="339.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="149.0" style="-fx-background-color: green;" text="Adaugare" />
-                <TextField fx:id="tf_nume" layoutX="18.0" layoutY="105.0" promptText="Nume" />
-                <TextField fx:id="tf_prenume" layoutX="18.0" layoutY="144.0" promptText="Prenume" />
-                <TextField fx:id="tf_email" layoutX="18.0" layoutY="180.0" promptText="email" />
-                <TextField fx:id="tf_telefon" layoutX="18.0" layoutY="215.0" promptText="telefon" />
-                <Label fx:id="label_id" alignment="CENTER" layoutX="21.0" layoutY="70.0" prefHeight="17.0" prefWidth="143.0" text="ID" />
-                <TextField fx:id="tf_filter" layoutX="237.0" layoutY="26.0" promptText="Filtru Cautare" />
+                <Button fx:id="button_delete" layoutX="18.0" layoutY="504.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="149.0" style="-fx-background-color: red;" text="Stergere" />
+                <Button id="button_update" fx:id="button_update" layoutX="18.0" layoutY="470.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="149.0" style="-fx-background-color: yellow;" text="Actualizare" />
+                <Button fx:id="button_add" layoutX="18.0" layoutY="434.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="149.0" style="-fx-background-color: green;" text="Adaugare" />
+                <TextField fx:id="tf_nume" layoutX="18.0" layoutY="227.0" promptText="Nume" />
+                <TextField fx:id="tf_prenume" layoutX="18.0" layoutY="266.0" promptText="Prenume" />
+                <TextField fx:id="tf_email" layoutX="18.0" layoutY="300.0" promptText="email" />
+                <TextField fx:id="tf_telefon" layoutX="18.0" layoutY="334.0" promptText="telefon" />
+                <Label fx:id="label_id" alignment="CENTER" layoutX="21.0" layoutY="197.0" prefHeight="17.0" prefWidth="143.0" text="ID" />
+                <TextField fx:id="tf_filter" layoutX="25.0" layoutY="38.0" promptText="Filtru Cautare" />
                 <Label fx:id="label_truUsername" layoutX="25.0" layoutY="21.0" />
             </children>
         </AnchorPane>

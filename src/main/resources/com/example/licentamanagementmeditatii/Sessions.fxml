@@ -5,9 +5,9 @@
 
 <AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.licentamanagementmeditatii.SessionsController">
    <children>
-      <Button fx:id="button_back" layoutX="27.0" layoutY="555.0" mnemonicParsing="false" text="Back" />
-      <Button fx:id="button_logout" layoutX="724.0" layoutY="555.0" mnemonicParsing="false" text="Logout" />
-      <TableView fx:id="table_materie" layoutX="230.0" layoutY="33.0" prefHeight="486.0" prefWidth="521.0">
+      <Button fx:id="button_back" layoutX="27.0" layoutY="555.0" mnemonicParsing="false" style="-fx-background-color: orange;" text="Back" />
+      <Button fx:id="button_logout" layoutX="724.0" layoutY="555.0" mnemonicParsing="false" style="-fx-background-color: orange;" text="Logout" />
+      <TableView fx:id="table_materie" layoutX="230.0" layoutY="33.0" prefHeight="486.0" prefWidth="551.0" style="-fx-border-radius: 10; -fx-background-radius: 10; -fx-border-color: transparent;">
         <columns>
           <TableColumn fx:id="column_id" prefWidth="33.0" text="ID" />
           <TableColumn fx:id="column_materie" prefWidth="81.0" text="Materie" />
@@ -15,17 +15,17 @@
             <TableColumn fx:id="column_pret_per_ora" prefWidth="73.0" text="pret per ora" />
             <TableColumn fx:id="column_durata" prefWidth="50.0" text="durata" />
             <TableColumn fx:id="column_data" prefWidth="126.0" text="data" />
-            <TableColumn fx:id="column_pret_total" prefWidth="75.0" text="pret total " />
+            <TableColumn fx:id="column_pret_total" prefWidth="75.0" style="fx-background-radius: 0.0 5.0 0.0 0.0;" text="pret total " />
         </columns>
       </TableView>
-      <Button fx:id="button_delete" layoutX="68.0" layoutY="494.0" mnemonicParsing="false" text="Stergere" />
-      <Button fx:id="button_update" layoutX="68.0" layoutY="454.0" mnemonicParsing="false" text="Actualizare" />
-      <Button fx:id="button_add" layoutX="68.0" layoutY="418.0" mnemonicParsing="false" text="Adaugare" />
-      <TextField fx:id="tf_materie" layoutX="46.0" layoutY="95.0" promptText="Materie" />
-      <TextField fx:id="tf_pret_per_ora" layoutX="46.0" layoutY="163.0" promptText="Pret per ora" />
-      <DatePicker fx:id="datepicker_calendar" layoutX="48.0" layoutY="230.0" prefHeight="25.0" prefWidth="149.0" promptText="Selectati data" />
+      <Button fx:id="button_delete" layoutX="38.0" layoutY="494.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="135.0" style="-fx-background-color: red;" text="Stergere" />
+      <Button fx:id="button_update" layoutX="36.0" layoutY="454.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="135.0" style="-fx-background-color: yellow;" text="Actualizare" />
+      <Button fx:id="button_add" layoutX="38.0" layoutY="417.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="135.0" style="-fx-background-color: green;" text="Adaugare" />
+      <TextField fx:id="tf_materie" layoutX="26.0" layoutY="95.0" prefHeight="25.0" prefWidth="169.0" promptText="Materie" />
+      <TextField fx:id="tf_pret_per_ora" layoutX="26.0" layoutY="163.0" prefHeight="25.0" prefWidth="169.0" promptText="Pret per ora" />
+      <DatePicker fx:id="datepicker_calendar" layoutX="28.0" layoutY="230.0" prefHeight="25.0" prefWidth="169.0" promptText="Selectati data" />
       <Label fx:id="label_id" layoutX="92.0" layoutY="33.0" text="ID" />
-      <ComboBox fx:id="combobox_student" layoutX="46.0" layoutY="128.0" prefWidth="150.0" promptText="Student" />
-      <ComboBox fx:id="combobox_durata" layoutX="45.0" layoutY="197.0" prefWidth="150.0" promptText="Durata" />
+      <ComboBox fx:id="combobox_student" layoutX="27.0" layoutY="128.0" prefHeight="25.0" prefWidth="169.0" promptText="Student" />
+      <ComboBox fx:id="combobox_durata" layoutX="26.0" layoutY="197.0" prefHeight="25.0" prefWidth="169.0" promptText="Durata" />
    </children>
 </AnchorPane>
