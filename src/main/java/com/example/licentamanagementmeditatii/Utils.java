@@ -176,6 +176,40 @@ public class Utils {
         }
 
     }
+
+    public static ObservableList<Session> getAllSessions(){
+
+        Connection conn = ConnectDb();
+        ObservableList<Session> list = FXCollections.observableArrayList();
+        try{
+            PreparedStatement ps = conn.prepareStatement("select m.ID, m.materie, m.ID_student, m.pret_per_ora, m.durata, m.data, s.nume AS student_ln, s.prenume AS student_fn from meditatii AS m \n" +
+                    "INNER JOIN student AS s ON m.ID_student = s.ID\n" +
+                    "where ID_meditator = ? ");
+            ps.setInt(1,CurrentUser.id);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()){
+                System.out.println("NAE");
+                Session session = new Session(
+                        rs.getInt("ID"),
+                        rs.getString("materie"),
+                        CurrentUser.id,
+                        rs.getInt("ID_student"),
+                        rs.getString("student_ln") + " " + rs.getString("student_fn"),
+
+                        rs.getInt("pret_per_ora"),
+                        rs.getInt("durata"),
+                        rs.getDate("data")
+
+                );
+                session.setPret_total(session.getPret_per_ora() * ((double)session.getDurata()/60));
+                list.add(session);
+            }
+        }catch (Exception e){
+        }
+        return list;
+    }
+
+
     //lista folosita pentru a extrage datele din baza de date
     public static ObservableList<UseriCati> getDatausers(){
 

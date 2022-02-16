@@ -4,10 +4,8 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.net.URL;
 
@@ -34,12 +32,59 @@ public class SessionsController implements Initializable {
     private TextField tf_pret_per_ora;
     @FXML
     private DatePicker datepicker_calendar;
+    @FXML
+    private TableView<Session> table_materie;
+    @FXML
+    private TableColumn<Session, Integer> column_id;
+    @FXML
+    private TableColumn<Session, String> column_materie;
+    @FXML
+    private TableColumn<Session, Integer> column_id_student;
+    @FXML
+    private TableColumn<Session, String> column_student;
+    @FXML
+    private TableColumn<Session, Integer> column_pret_per_ora;
+    @FXML
+    private TableColumn<Session, Integer> column_durata;
+    @FXML
+    private TableColumn<Session, Date> column_data;
+    @FXML
+    private TableColumn<Session, Double> column_pret_total;
+
+    ObservableList<Session> listS;
+
+    public void UpdateTableMeditatii(){
+        column_id.setCellValueFactory(new PropertyValueFactory<Session, Integer>("ID"));
+        column_materie.setCellValueFactory(new PropertyValueFactory<Session, String>("materie"));
+        column_id_student.setCellValueFactory(new PropertyValueFactory<Session, Integer>("idStudent"));
+        column_student.setCellValueFactory(new PropertyValueFactory<Session, String>("student_nume"));
+        column_pret_per_ora.setCellValueFactory(new PropertyValueFactory<Session, Integer>("pret_per_ora"));
+        column_durata.setCellValueFactory(new PropertyValueFactory<Session, Integer>("durata"));
+        column_data.setCellValueFactory(new PropertyValueFactory<Session, Date>("date"));
+        column_pret_total.setCellValueFactory(new PropertyValueFactory<Session, Double>("pret_total"));
+
+        listS = Utils.getAllSessions();
+        table_materie.setItems(listS);
+    }
+
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         combobox_durata.getItems().add(60);
         combobox_durata.getItems().add(90);
         combobox_durata.getItems().add(120);
+
+        UpdateTableMeditatii();
+
+        System.out.println("-------");
+        table_materie.setItems(Utils.getAllSessions());
+        Utils.getAllSessions().forEach(s->{
+            System.out.println(s);
+        });
+
+
+
 
         ObservableList<UseriCati> students = Utils.getDatausers();
         for (UseriCati student:students) {

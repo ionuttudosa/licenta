@@ -9,7 +9,25 @@ public class Session {
     private String materie;
     private int idMeditator;
     private int idStudent;
+    private String student_nume;
     private int pret_per_ora;
+    private int durata;
+    private Date date;
+    private double pret_total;
+
+    @Override
+    public String toString() {
+        return "Session{" +
+                "ID=" + ID +
+                ", materie='" + materie + '\'' +
+                ", idMeditator=" + idMeditator +
+                ", idStudent=" + idStudent +
+                ", student_nume='" + student_nume + '\'' +
+                ", pret_per_ora=" + pret_per_ora +
+                ", durata=" + durata +
+                ", date=" + date +
+                '}';
+    }
 
     public Date getDate() {
         return date;
@@ -19,8 +37,8 @@ public class Session {
         this.date = date;
     }
 
-    private int durata;
-    private Date date;
+
+
 
     public Session() {
     }
@@ -34,11 +52,12 @@ public class Session {
         this.date = date;
     }
 
-    public Session(int ID, String materie, int idMeditator, int idStudent, int pret_per_ora, int durata, Date date) {
+    public Session(int ID, String materie, int idMeditator, int idStudent, String student_nume, int pret_per_ora, int durata, Date date) {
         this.ID = ID;
         this.materie = materie;
         this.idMeditator = idMeditator;
         this.idStudent = idStudent;
+        this.student_nume = student_nume;
         this.pret_per_ora = pret_per_ora;
         this.durata = durata;
         this.date = date;
@@ -92,5 +111,19 @@ public class Session {
         this.durata = durata;
     }
 
+    public void setStudent_nume(String student_nume) {
+        this.student_nume = student_nume;
+    }
 
+    public String getStudent_nume() {
+        return student_nume;
+    }
+
+    public double getPret_total() {
+        return pret_total;
+    }
+
+    public void setPret_total(double pret_total) {
+        this.pret_total = pret_total;
+    }
 }
