@@ -7,7 +7,7 @@
    <children>
       <Button fx:id="button_back" layoutX="27.0" layoutY="555.0" mnemonicParsing="false" style="-fx-background-color: orange;" text="Back" />
       <Button fx:id="button_logout" layoutX="823.0" layoutY="555.0" mnemonicParsing="false" style="-fx-background-color: orange;" text="Logout" />
-      <TableView fx:id="table_materie" layoutX="230.0" layoutY="33.0" prefHeight="486.0" prefWidth="647.0" style="-fx-border-radius: 10; -fx-background-radius: 10; -fx-border-color: transparent;">
+      <TableView fx:id="table_materie" layoutX="230.0" layoutY="33.0" onMouseClicked="#getSelected" prefHeight="486.0" prefWidth="647.0" style="-fx-border-radius: 10; -fx-background-radius: 10; -fx-border-color: transparent;">
         <columns>
           <TableColumn fx:id="column_id" prefWidth="33.0" text="ID" />
           <TableColumn fx:id="column_materie" prefWidth="81.0" text="Materie" />

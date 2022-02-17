@@ -13,6 +13,8 @@ import java.sql.Date;
 import java.util.ResourceBundle;
 public class SessionsController implements Initializable {
     @FXML
+    private Label label_id;
+    @FXML
     private ComboBox<Integer> combobox_durata;
     @FXML
     private ComboBox<String> combobox_student;
@@ -52,6 +54,22 @@ public class SessionsController implements Initializable {
     private TableColumn<Session, Double> column_pret_total;
 
     ObservableList<Session> listS;
+    int index = -1;
+    public void getSelected () {
+
+        index = table_materie.getSelectionModel().getSelectedIndex();
+        if(index <= -1){
+
+            return;
+        }
+        label_id.setText(column_id.getCellData(index).toString());
+        tf_materie.setText(column_materie.getCellData(index).toString());
+        combobox_student.setValue(column_student.getCellData(index));
+        tf_pret_per_ora.setText(column_pret_per_ora.getCellData(index).toString());
+        combobox_durata.setValue(column_durata.getCellData(index));
+        datepicker_calendar.setValue(column_data.getCellData(index).toLocalDate());
+    }
+
 
     public void UpdateTableMeditatii(){
         column_id.setCellValueFactory(new PropertyValueFactory<Session, Integer>("ID"));
