@@ -42,6 +42,7 @@ public class Utils {
 
 
     }
+
     public static void signUpUser(ActionEvent event, String username, String password, String nume, String prenume, String email, String telefon){
         Connection connection = null;
         PreparedStatement psInsert = null;
@@ -270,12 +271,13 @@ public class Utils {
                 alert.setContentText("You cannot use this username");
                 alert.show();
             } else {
+                int idMeditator = CurrentUser.id;
                 psInsert = connection.prepareStatement("INSERT INTO student (nume, prenume, email, telefon, idMeditator) VALUES (?, ?, ?, ?, ?)");
                 psInsert.setString(1, nume);
                 psInsert.setString(2, prenume);
                 psInsert.setString(3, email);
                 psInsert.setString(4, telefon);
-             //   psInsert.setInt(5,);
+                psInsert.setInt(5, idMeditator);
                 psInsert.execute();
                 JOptionPane.showMessageDialog(null, "Userul a fost adaugat");
             }

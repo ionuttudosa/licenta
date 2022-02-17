@@ -22,11 +22,12 @@
       <Button fx:id="button_delete" layoutX="38.0" layoutY="494.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="135.0" style="-fx-background-color: red;" text="Stergere" />
       <Button fx:id="button_update" layoutX="36.0" layoutY="454.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="135.0" style="-fx-background-color: yellow;" text="Actualizare" />
       <Button fx:id="button_add" layoutX="38.0" layoutY="417.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="135.0" style="-fx-background-color: green;" text="Adaugare" />
-      <TextField fx:id="tf_materie" layoutX="26.0" layoutY="95.0" prefHeight="25.0" prefWidth="169.0" promptText="Materie" />
-      <TextField fx:id="tf_pret_per_ora" layoutX="26.0" layoutY="163.0" prefHeight="25.0" prefWidth="169.0" promptText="Pret per ora" />
-      <DatePicker fx:id="datepicker_calendar" layoutX="28.0" layoutY="230.0" prefHeight="25.0" prefWidth="169.0" promptText="Selectati data" />
-      <Label fx:id="label_id" layoutX="92.0" layoutY="33.0" text="ID" />
-      <ComboBox fx:id="combobox_student" layoutX="27.0" layoutY="128.0" prefHeight="25.0" prefWidth="169.0" promptText="Student" />
-      <ComboBox fx:id="combobox_durata" layoutX="26.0" layoutY="197.0" prefHeight="25.0" prefWidth="169.0" promptText="Durata" />
+      <TextField fx:id="tf_materie" layoutX="27.0" layoutY="176.0" prefHeight="25.0" prefWidth="169.0" promptText="Materie" />
+      <TextField fx:id="tf_pret_per_ora" layoutX="26.0" layoutY="251.0" prefHeight="25.0" prefWidth="169.0" promptText="Pret per ora" />
+      <DatePicker fx:id="datepicker_calendar" layoutX="27.0" layoutY="327.0" prefHeight="25.0" prefWidth="169.0" promptText="Selectati data" />
+      <Label fx:id="label_id" layoutX="105.0" layoutY="151.0" text="ID" />
+      <ComboBox fx:id="combobox_student" layoutX="26.0" layoutY="213.0" prefHeight="25.0" prefWidth="169.0" promptText="Student" />
+      <ComboBox fx:id="combobox_durata" layoutX="26.0" layoutY="288.0" prefHeight="25.0" prefWidth="169.0" promptText="Durata" />
+      <TextField layoutX="29.0" layoutY="33.0" prefHeight="25.0" prefWidth="169.0" />
    </children>
 </AnchorPane>

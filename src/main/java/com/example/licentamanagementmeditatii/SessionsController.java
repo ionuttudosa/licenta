@@ -1,5 +1,7 @@
 package com.example.licentamanagementmeditatii;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -12,6 +14,8 @@ import java.net.URL;
 import java.sql.Date;
 import java.util.ResourceBundle;
 public class SessionsController implements Initializable {
+    @FXML
+    private TextField tf_filter;
     @FXML
     private Label label_id;
     @FXML
@@ -41,7 +45,7 @@ public class SessionsController implements Initializable {
     @FXML
     private TableColumn<Session, String> column_materie;
     @FXML
-    private TableColumn<Session, Integer> column_id_student;
+    private TableColumn<Session, String> column_id_student;
     @FXML
     private TableColumn<Session, String> column_student;
     @FXML
@@ -54,6 +58,7 @@ public class SessionsController implements Initializable {
     private TableColumn<Session, Double> column_pret_total;
 
     ObservableList<Session> listS;
+    ObservableList<Session> dataList;
     int index = -1;
     public void getSelected () {
 
@@ -74,7 +79,7 @@ public class SessionsController implements Initializable {
     public void UpdateTableMeditatii(){
         column_id.setCellValueFactory(new PropertyValueFactory<Session, Integer>("ID"));
         column_materie.setCellValueFactory(new PropertyValueFactory<Session, String>("materie"));
-        column_id_student.setCellValueFactory(new PropertyValueFactory<Session, Integer>("idStudent"));
+        column_id_student.setCellValueFactory(new PropertyValueFactory<Session, String>("idStudent"));
         column_student.setCellValueFactory(new PropertyValueFactory<Session, String>("student_nume"));
         column_pret_per_ora.setCellValueFactory(new PropertyValueFactory<Session, Integer>("pret_per_ora"));
         column_durata.setCellValueFactory(new PropertyValueFactory<Session, Integer>("durata"));
@@ -85,8 +90,43 @@ public class SessionsController implements Initializable {
         table_materie.setItems(listS);
     }
 
+    @FXML
+    void search_session(){
+      //  column_id.setCellValueFactory(new PropertyValueFactory<Session, Integer>("id"));
+        column_materie.setCellValueFactory(new PropertyValueFactory<Session, String>("materie"));
+        column_id_student.setCellValueFactory(new PropertyValueFactory<Session, String>("IDstudent"));
+        column_student.setCellValueFactory(new PropertyValueFactory<Session, String>("nume" + "prenume"));
+        column_pret_per_ora.setCellValueFactory(new PropertyValueFactory<Session, Integer>("pret_per_ora"));
+        column_durata.setCellValueFactory(new PropertyValueFactory<Session, Integer>("durata"));
+        column_data.setCellValueFactory(new PropertyValueFactory<Session, Date>("data"));
 
 
+        dataList = Utils.getAllSessions();
+        table_materie.setItems(dataList);
+        FilteredList<Session> filteredData = new FilteredList<>(dataList, b -> true);
+        tf_filter.textProperty().addListener((observable, oldValue, newValue) -> {
+            filteredData.setPredicate(person -> {
+                if(newValue ==null || newValue.isEmpty()){
+                    return true;
+                }
+                String lowerCaseFilter = newValue.toLowerCase();
+                if(person.getStudent_nume().indexOf(lowerCaseFilter) != -1){
+                    return true; // Filtru corespunde username
+                }else if (String.valueOf(person.getIdStudent()).indexOf(lowerCaseFilter) != -1){
+                    return true; // filtru corespdune parola
+                }
+                else if(String.valueOf(person.getDate()).indexOf(lowerCaseFilter) != -1)
+                    return true; // filtru corespdune PREnume
+                else
+                    return false; // nu gasim nimic
+
+            });
+        });
+        SortedList<Session> sortedData = new SortedList<>(filteredData);
+        sortedData.comparatorProperty().bind(table_materie.comparatorProperty());
+        table_materie.setItems(sortedData);
+    }
+//-------------------------------------------------------------------\\
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         combobox_durata.getItems().add(60);
