@@ -28,6 +28,6 @@
       <Label fx:id="label_id" layoutX="105.0" layoutY="151.0" text="ID" />
       <ComboBox fx:id="combobox_student" layoutX="26.0" layoutY="213.0" prefHeight="25.0" prefWidth="169.0" promptText="Student" />
       <ComboBox fx:id="combobox_durata" layoutX="26.0" layoutY="288.0" prefHeight="25.0" prefWidth="169.0" promptText="Durata" />
-      <TextField layoutX="29.0" layoutY="33.0" prefHeight="25.0" prefWidth="169.0" />
+      <TextField fx:id="tf_filter" layoutX="29.0" layoutY="33.0" prefHeight="25.0" prefWidth="169.0" />
    </children>
 </AnchorPane>

@@ -3,32 +3,22 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.licentamanagementmeditatii.DashboardController">
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="596.0" prefWidth="895.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.licentamanagementmeditatii.DashboardController">
    <children>
       <Button layoutX="14.0" layoutY="561.0" mnemonicParsing="false" style="-fx-background-color: orange;" text="Back" />
-      <Button layoutX="734.0" layoutY="561.0" mnemonicParsing="false" style="-fx-background-color: orange;" text="LogOut" />
-      <Button fx:id="button_manage_students" layoutX="246.0" layoutY="498.0" mnemonicParsing="false" style="-fx-background-color: orange;" text="Manage Students" />
+      <Button layoutX="830.0" layoutY="561.0" mnemonicParsing="false" style="-fx-background-color: orange;" text="LogOut" />
+      <Button fx:id="button_manage_students" layoutX="252.0" layoutY="498.0" mnemonicParsing="false" style="-fx-background-color: orange;" text="Manage Students" />
       <HBox layoutX="62.0" layoutY="52.0" prefHeight="100.0" prefWidth="200.0">
          <children>
             <Label fx:id="label_welcome" alignment="CENTER" prefHeight="102.0" prefWidth="200.0" style="-fx-border-color: green; -fx-border-radius: 10;" text="Month Income" />
          </children>
       </HBox>
-      <HBox layoutX="300.0" layoutY="52.0" prefHeight="100.0" prefWidth="200.0">
-         <children>
-            <Label fx:id="label_debt" alignment="CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-border-color: red; -fx-border-radius: 10;" text="Debt" />
-         </children>
-      </HBox>
-      <HBox layoutX="562.0" layoutY="52.0" prefHeight="100.0" prefWidth="200.0">
-         <children>
-            <Label fx:id="label_paid" alignment="CENTER" prefHeight="105.0" prefWidth="200.0" style="-fx-border-color: green; -fx-border-radius: 10;" text="Paid" />
-         </children>
-      </HBox>
       <Label layoutX="148.0" layoutY="29.0" text="Monthly" />
-      <Label layoutX="386.0" layoutY="29.0" text="Debt" />
-      <Label layoutX="648.0" layoutY="29.0" text="Paid" />
-      <HBox layoutX="34.0" layoutY="200.0" prefHeight="215.0" prefWidth="726.0">
+      <Label layoutX="448.0" layoutY="29.0" text="Debt" />
+      <Label layoutX="749.0" layoutY="29.0" text="Paid" />
+      <HBox layoutX="61.0" layoutY="200.0" prefHeight="215.0" prefWidth="800.0">
          <children>
-            <TableView prefHeight="215.0" prefWidth="730.0" style="-fx-border-radius: 10; -fx-background-radius: 10; -fx-border-color: black;">
+            <TableView prefHeight="215.0" prefWidth="802.0" style="-fx-border-radius: 10; -fx-background-radius: 10; -fx-border-color: black;">
               <columns>
                 <TableColumn prefWidth="75.0" text="C1" />
                 <TableColumn prefWidth="75.0" text="C2" />
@@ -37,6 +27,8 @@
          </children>
       </HBox>
       <Label layoutX="121.0" layoutY="183.0" text="Pending Payments" />
-      <Button fx:id="button_manage_sessions" layoutX="446.0" layoutY="498.0" mnemonicParsing="false" style="-fx-background-color: orange;" text="Manage Sessions" />
+      <Button fx:id="button_manage_sessions" layoutX="561.0" layoutY="498.0" mnemonicParsing="false" style="-fx-background-color: orange;" text="Manage Sessions" />
+      <Label fx:id="label_paid" alignment="CENTER" layoutX="649.0" layoutY="51.0" prefHeight="102.0" prefWidth="200.0" style="-fx-border-color: green; -fx-border-radius: 10;" text="Paid" />
+      <Label fx:id="label_debt" alignment="CENTER" layoutX="361.0" layoutY="52.0" prefHeight="100.0" prefWidth="200.0" style="-fx-border-color: red; -fx-border-radius: 10;" text="Debt" />
    </children>
 </AnchorPane>

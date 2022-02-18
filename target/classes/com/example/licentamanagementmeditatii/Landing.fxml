@@ -5,30 +5,27 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.licentamanagementmeditatii.LandingController">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.licentamanagementmeditatii.LandingController">
    <children>
-      <AnchorPane prefHeight="600.0" prefWidth="450.0" style="-fx-background-color: white;">
+      <AnchorPane prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: white;">
          <children>
-            <Button fx:id="button_signup" layoutX="48.0" layoutY="561.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="129.0" style="-fx-background-color: orange;" text="Sign up" />
-         </children></AnchorPane>
-      <AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: white;">
-         <children>
-            <ImageView fitHeight="480.0" fitWidth="735.0" layoutX="-160.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="512.0" fitWidth="737.0" layoutX="160.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Study-Group_111819626-copy4-1038x733.jpg" />
                </image>
                <effect>
                   <Blend />
                </effect></ImageView>
-            <Button fx:id="button_login" layoutX="213.0" layoutY="561.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="149.0" style="-fx-background-color: orange;" text="Login" />
+            <Button fx:id="button_login" layoutX="481.0" layoutY="561.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="149.0" style="-fx-background-color: orange;" text="Login" />
             <Label layoutX="275.0" layoutY="31.0" text="Label" />
-            <PasswordField fx:id="tf_password" layoutX="213.0" layoutY="518.0" promptText="Password" />
-            <TextField fx:id="tf_username" layoutX="214.0" layoutY="486.0" promptText="Username" />
-            <ImageView fitHeight="129.0" fitWidth="131.0" layoutX="-170.0" layoutY="422.0" pickOnBounds="true" preserveRatio="true">
+            <PasswordField fx:id="tf_password" layoutX="481.0" layoutY="518.0" promptText="Password" />
+            <TextField fx:id="tf_username" layoutX="481.0" layoutY="487.0" promptText="Username" />
+            <ImageView fitHeight="129.0" fitWidth="131.0" layoutX="14.0" layoutY="423.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@new_user.png" />
                </image>
             </ImageView>
+            <Button fx:id="button_signup" layoutX="14.0" layoutY="561.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="129.0" style="-fx-background-color: orange;" text="Sign up" />
          </children></AnchorPane>
    </children>
 </HBox>

@@ -51,6 +51,9 @@ public class StudentsController implements Initializable {
     @FXML
     private TableColumn<UseriCati,String> col_db_telefon ;
 
+
+
+
     //liste folosite pentru populare si cautare
     ObservableList<UseriCati> dataList;
     ObservableList<UseriCati> listM;
@@ -107,14 +110,14 @@ public class StudentsController implements Initializable {
                     return true;
                 }
                 String lowerCaseFilter = newValue.toLowerCase();
-                if(person.getNume().indexOf(lowerCaseFilter) != -1){
+                if(person.getNume().toLowerCase().contains(lowerCaseFilter)){
                     return true; // Filtru corespunde username
-                }else if (String.valueOf(person.getPrenume()).indexOf(lowerCaseFilter) != -1){
+                }else if (person.getPrenume().toLowerCase().contains(lowerCaseFilter)){
                     return true; // filtru corespdune parola
-                }else if(String.valueOf(person.getEmail()).indexOf(lowerCaseFilter) != -1){
+                }else if(person.getEmail().toLowerCase().contains(lowerCaseFilter)){
                     return true; // filtru corespdune nume
                 }
-                else if(String.valueOf(person.getTelefon()).indexOf(lowerCaseFilter) != -1)
+                else if(String.valueOf(person.getTelefon()).contains(lowerCaseFilter))
                     return true; // filtru corespdune PREnume
                 else
                     return false; // nu gasim nimic

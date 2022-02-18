@@ -37,7 +37,7 @@ public class Utils {
         }
         Stage stage = (Stage)  ((Node) event.getSource()).getScene().getWindow();
         stage.setTitle(title);
-        stage.setScene(new Scene(root, 800,600));
+        stage.setScene(new Scene(root, 900,600));
         stage.show();
 
 
@@ -279,7 +279,7 @@ public class Utils {
                 psInsert.setString(4, telefon);
                 psInsert.setInt(5, idMeditator);
                 psInsert.execute();
-                JOptionPane.showMessageDialog(null, "Userul a fost adaugat");
+                JOptionPane.showMessageDialog(null, "Studentul a fost adaugat");
             }
         }catch (SQLException e) {
             e.printStackTrace();

@@ -93,30 +93,44 @@ public class SessionsController implements Initializable {
     @FXML
     void search_session(){
       //  column_id.setCellValueFactory(new PropertyValueFactory<Session, Integer>("id"));
+//        column_materie.setCellValueFactory(new PropertyValueFactory<Session, String>("materie"));
+//        column_id_student.setCellValueFactory(new PropertyValueFactory<Session, String>("IDstudent"));
+//        column_student.setCellValueFactory(new PropertyValueFactory<Session, String>("nume" + "prenume"));
+//        column_pret_per_ora.setCellValueFactory(new PropertyValueFactory<Session, Integer>("pret_per_ora"));
+//        column_durata.setCellValueFactory(new PropertyValueFactory<Session, Integer>("durata"));
+//        column_data.setCellValueFactory(new PropertyValueFactory<Session, Date>("data"));
+        column_id.setCellValueFactory(new PropertyValueFactory<Session, Integer>("ID"));
         column_materie.setCellValueFactory(new PropertyValueFactory<Session, String>("materie"));
-        column_id_student.setCellValueFactory(new PropertyValueFactory<Session, String>("IDstudent"));
-        column_student.setCellValueFactory(new PropertyValueFactory<Session, String>("nume" + "prenume"));
+        column_id_student.setCellValueFactory(new PropertyValueFactory<Session, String>("idStudent"));
+        column_student.setCellValueFactory(new PropertyValueFactory<Session, String>("student_nume"));
         column_pret_per_ora.setCellValueFactory(new PropertyValueFactory<Session, Integer>("pret_per_ora"));
         column_durata.setCellValueFactory(new PropertyValueFactory<Session, Integer>("durata"));
-        column_data.setCellValueFactory(new PropertyValueFactory<Session, Date>("data"));
+        column_data.setCellValueFactory(new PropertyValueFactory<Session, Date>("date"));
+        column_pret_total.setCellValueFactory(new PropertyValueFactory<Session, Double>("pret_total"));
 
 
         dataList = Utils.getAllSessions();
         table_materie.setItems(dataList);
         FilteredList<Session> filteredData = new FilteredList<>(dataList, b -> true);
         tf_filter.textProperty().addListener((observable, oldValue, newValue) -> {
-            filteredData.setPredicate(person -> {
+            filteredData.setPredicate(session -> {
                 if(newValue ==null || newValue.isEmpty()){
                     return true;
                 }
+                System.out.println(session.getMaterie());
                 String lowerCaseFilter = newValue.toLowerCase();
-                if(person.getStudent_nume().indexOf(lowerCaseFilter) != -1){
-                    return true; // Filtru corespunde username
-                }else if (String.valueOf(person.getIdStudent()).indexOf(lowerCaseFilter) != -1){
-                    return true; // filtru corespdune parola
+                System.out.println(lowerCaseFilter);
+                if(session.getStudent_nume().toLowerCase().contains(lowerCaseFilter)){
+                    return true;
+                }else if (String.valueOf(session.getIdStudent()).contains(lowerCaseFilter)){
+                    return true;
+
+                }else if(session.getMaterie().toLowerCase().contains(lowerCaseFilter)) {
+                    System.out.println("Am intrebat");
+                    return true;
                 }
-                else if(String.valueOf(person.getDate()).indexOf(lowerCaseFilter) != -1)
-                    return true; // filtru corespdune PREnume
+                else if(String.valueOf(session.getDate()).contains(lowerCaseFilter))
+                    return true;
                 else
                     return false; // nu gasim nimic
 
@@ -129,6 +143,9 @@ public class SessionsController implements Initializable {
 //-------------------------------------------------------------------\\
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+
+
         combobox_durata.getItems().add(60);
         combobox_durata.getItems().add(90);
         combobox_durata.getItems().add(120);
@@ -164,6 +181,7 @@ public class SessionsController implements Initializable {
                         combobox_durata.getValue(),
                         Date.valueOf(datepicker_calendar.getValue()));
                 Utils.AddSession(s);
+                UpdateTableMeditatii();
             }
         });
 
@@ -188,6 +206,10 @@ public class SessionsController implements Initializable {
             }
 
         });
+
+        UpdateTableMeditatii();
+        search_session();
+
 
     }
 }
