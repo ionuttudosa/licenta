@@ -14,6 +14,7 @@ public class Session {
     private int durata;
     private Date date;
     private double pret_total;
+    private int platit;
 
     @Override
     public String toString() {
@@ -38,21 +39,20 @@ public class Session {
     }
 
 
-
-
     public Session() {
     }
 
-    public Session(String materie, int idMeditator, int idStudent, int pret_per_ora, int durata, Date date) {
+    public Session(String materie, int idMeditator, int idStudent, int pret_per_ora, int durata, Date date, int platit) {
         this.materie = materie;
         this.idMeditator = idMeditator;
         this.idStudent = idStudent;
         this.pret_per_ora = pret_per_ora;
         this.durata = durata;
         this.date = date;
+        this.platit = platit;
     }
 
-    public Session(int ID, String materie, int idMeditator, int idStudent, String student_nume, int pret_per_ora, int durata, Date date) {
+    public Session(int ID, String materie, int idMeditator, int idStudent, String student_nume, int pret_per_ora, int durata, Date date, int platit) {
         this.ID = ID;
         this.materie = materie;
         this.idMeditator = idMeditator;
@@ -61,6 +61,7 @@ public class Session {
         this.pret_per_ora = pret_per_ora;
         this.durata = durata;
         this.date = date;
+        this.platit = platit;
     }
 
     public int getID() {
@@ -95,6 +96,14 @@ public class Session {
         this.idStudent = idStudent;
     }
 
+    public String getStudent_nume() {
+        return student_nume;
+    }
+
+    public void setStudent_nume(String student_nume) {
+        this.student_nume = student_nume;
+    }
+
     public int getPret_per_ora() {
         return pret_per_ora;
     }
@@ -111,19 +120,19 @@ public class Session {
         this.durata = durata;
     }
 
-    public void setStudent_nume(String student_nume) {
-        this.student_nume = student_nume;
-    }
-
-    public String getStudent_nume() {
-        return student_nume;
-    }
-
     public double getPret_total() {
         return pret_total;
     }
 
     public void setPret_total(double pret_total) {
         this.pret_total = pret_total;
+    }
+
+    public int getPlatit() {
+        return platit;
+    }
+
+    public void setPlatit(int platit) {
+        this.platit = platit;
     }
 }

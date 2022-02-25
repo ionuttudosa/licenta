@@ -76,10 +76,10 @@ public class StudentsController implements Initializable {
             return;
         }
         label_id.setText(col_db_user_id.getCellData(index).toString());
-        tf_nume.setText(col_db_nume.getCellData(index).toString());
-        tf_prenume.setText(col_db_prenume.getCellData(index).toString());
-        tf_email.setText(col_db_email.getCellData(index).toString());
-        tf_telefon.setText(col_db_telefon.getCellData(index).toString());
+        tf_nume.setText(col_db_nume.getCellData(index));
+        tf_prenume.setText(col_db_prenume.getCellData(index));
+        tf_email.setText(col_db_email.getCellData(index));
+        tf_telefon.setText(col_db_telefon.getCellData(index));
     }
     //metoda pentru reimprospatarea tabelului dupa ce a fost modificat
     public void UpdateTable(){
@@ -114,13 +114,11 @@ public class StudentsController implements Initializable {
                     return true; // Filtru corespunde username
                 }else if (person.getPrenume().toLowerCase().contains(lowerCaseFilter)){
                     return true; // filtru corespdune parola
-                }else if(person.getEmail().toLowerCase().contains(lowerCaseFilter)){
+                }else // nu gasim nimic
+                    if(person.getEmail().toLowerCase().contains(lowerCaseFilter)){
                     return true; // filtru corespdune nume
                 }
-                else if(String.valueOf(person.getTelefon()).contains(lowerCaseFilter))
-                    return true; // filtru corespdune PREnume
-                else
-                    return false; // nu gasim nimic
+                else return String.valueOf(person.getTelefon()).contains(lowerCaseFilter); // filtru corespdune PREnume
 
             });
         });
@@ -176,10 +174,10 @@ public class StudentsController implements Initializable {
                 try {
                     conn = Utils.ConnectDb();
                     String value1 = label_id.getText();
-                    String value2 = tf_email.getText();
-                    String value3 = tf_telefon.getText();
-                    String value4 = tf_nume.getText();
-                    String value5 = tf_prenume.getText();
+                    String value2 = tf_nume.getText();
+                    String value3 = tf_prenume.getText();
+                    String value4 = tf_email.getText();
+                    String value5 = tf_telefon.getText();
                     if(!(value2==null) && !(value2.contains(" ")) && !(value3==null )&& !(value3.contains(" "))){
                         String sql = "UPDATE student set  nume='"+value2+"',prenume='"+value3+"',email='"+value4+"',telefon='"+value5+"' where id= '"+value1+"' ";
                         pst = conn.prepareStatement(sql);
@@ -214,7 +212,6 @@ public class StudentsController implements Initializable {
                 }
             }
         });
-//
         UpdateTable();
         search_user();
     }

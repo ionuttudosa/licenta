@@ -183,10 +183,20 @@ public class Utils {
         Connection conn = ConnectDb();
         ObservableList<Session> list = FXCollections.observableArrayList();
         try{
-            PreparedStatement ps = conn.prepareStatement("select m.ID, m.materie, m.ID_student, m.pret_per_ora, m.durata, m.data, s.nume AS student_ln, s.prenume AS student_fn from meditatii AS m \n" +
+            System.out.println(CurrentUser.current_date==null);
+            System.out.println("linia care vine");
+            if(CurrentUser.current_date == null){
+                CurrentUser.setCurrent_date();
+                System.out.println("blablabla");
+            }
+            System.out.println("superceva");
+            PreparedStatement ps = conn.prepareStatement("select m.platit, m.ID, m.materie, m.ID_student, m.pret_per_ora, m.durata, m.data, s.nume AS student_ln, s.prenume AS student_fn from meditatii AS m \n" +
                     "INNER JOIN student AS s ON m.ID_student = s.ID\n" +
-                    "where ID_meditator = ? ");
+                    "where ID_meditator = ? AND m.data >= ? AND m.data <= ?");
             ps.setInt(1,CurrentUser.id);
+            ps.setDate(2, CurrentUser.current_date);
+            ps.setDate(3,CurrentUser.endMonth);
+            System.out.println(CurrentUser.endMonth);
             ResultSet rs = ps.executeQuery();
             while (rs.next()){
                 System.out.println("NAE");
@@ -199,9 +209,11 @@ public class Utils {
 
                         rs.getInt("pret_per_ora"),
                         rs.getInt("durata"),
-                        rs.getDate("data")
+                        rs.getDate("data"),
+                        rs.getInt("platit")
 
                 );
+                System.out.println(session.getStudent_nume());
                 session.setPret_total(session.getPret_per_ora() * ((double)session.getDurata()/60));
                 list.add(session);
             }
@@ -236,13 +248,14 @@ public class Utils {
     public static void AddSession(Session session){
         try {
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/licenta_manag_meditatii", "root", "Abc123ABC?!!");
-            PreparedStatement ps = connection.prepareStatement("insert into meditatii (materie, ID_meditator, ID_student, pret_per_ora, durata, data) values (?, ?, ?, ?, ?, ?)");
+            PreparedStatement ps = connection.prepareStatement("insert into meditatii (materie, ID_meditator, ID_student, pret_per_ora, durata, data, platit) values (?, ?, ?, ?, ?, ?, ?)");
             ps.setString(1, session.getMaterie());
             ps.setInt(2,session.getIdMeditator());
             ps.setInt(3,session.getIdStudent());
             ps.setInt(4, session.getPret_per_ora());
             ps.setInt(5,session.getDurata());
             ps.setDate(6,session.getDate());
+            ps.setInt(7, session.getPlatit());
             ps.execute();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -254,7 +267,7 @@ public class Utils {
 
 
     //tranformam pe asta in defapt management studenti
-    public static void CheckAddUser(ActionEvent event, String email, String telefon, String nume, String prenume){
+    public static void CheckAddUser(ActionEvent event, String nume, String prenume, String email, String telefon){
         Connection connection = null;
         PreparedStatement psInsert = null;
         PreparedStatement psCheckUserExists = null;
@@ -278,6 +291,7 @@ public class Utils {
                 psInsert.setString(3, email);
                 psInsert.setString(4, telefon);
                 psInsert.setInt(5, idMeditator);
+                System.out.println(psInsert);
                 psInsert.execute();
                 JOptionPane.showMessageDialog(null, "Studentul a fost adaugat");
             }

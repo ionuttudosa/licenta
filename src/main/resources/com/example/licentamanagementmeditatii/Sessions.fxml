@@ -9,14 +9,15 @@
       <Button fx:id="button_logout" layoutX="823.0" layoutY="555.0" mnemonicParsing="false" style="-fx-background-color: orange;" text="Logout" />
       <TableView fx:id="table_materie" layoutX="230.0" layoutY="33.0" onMouseClicked="#getSelected" prefHeight="486.0" prefWidth="647.0" style="-fx-border-radius: 10; -fx-background-radius: 10; -fx-border-color: transparent;">
         <columns>
-          <TableColumn fx:id="column_id" prefWidth="33.0" text="ID" />
+          <TableColumn fx:id="column_id" prefWidth="33.0" text="ID" visible="false" />
           <TableColumn fx:id="column_materie" prefWidth="81.0" text="Materie" />
             <TableColumn fx:id="column_id_student" prefWidth="66.0" text="ID Student" />
             <TableColumn fx:id="column_student" prefWidth="122.0" text="Student" />
-            <TableColumn fx:id="column_pret_per_ora" prefWidth="83.0" text="pret per ora" />
-            <TableColumn fx:id="column_durata" prefWidth="54.0" text="durata" />
-            <TableColumn fx:id="column_data" prefWidth="119.0" text="data" />
-            <TableColumn fx:id="column_pret_total" prefWidth="69.0" style="fx-background-radius: 0.0 5.0 0.0 0.0;" text="pret total " />
+            <TableColumn fx:id="column_pret_per_ora" prefWidth="73.0" text="pret per ora" />
+            <TableColumn fx:id="column_durata" prefWidth="64.0" text="durata" />
+            <TableColumn fx:id="column_data" prefWidth="95.0" text="data" />
+            <TableColumn fx:id="column_pret_total" prefWidth="93.0" style="fx-background-radius: 0.0 5.0 0.0 0.0;" text="pret total " />
+            <TableColumn fx:id="column_platit" prefWidth="51.0" text="Platit" />
         </columns>
       </TableView>
       <Button fx:id="button_delete" layoutX="38.0" layoutY="494.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="135.0" style="-fx-background-color: red;" text="Stergere" />
@@ -29,5 +30,6 @@
       <ComboBox fx:id="combobox_student" layoutX="26.0" layoutY="213.0" prefHeight="25.0" prefWidth="169.0" promptText="Student" />
       <ComboBox fx:id="combobox_durata" layoutX="26.0" layoutY="288.0" prefHeight="25.0" prefWidth="169.0" promptText="Durata" />
       <TextField fx:id="tf_filter" layoutX="29.0" layoutY="33.0" prefHeight="25.0" prefWidth="169.0" />
+      <RadioButton fx:id="button_radio_platit" layoutX="29.0" layoutY="376.0" mnemonicParsing="false" text="Platit?" />
    </children>
 </AnchorPane>

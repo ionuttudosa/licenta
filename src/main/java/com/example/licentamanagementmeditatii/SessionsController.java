@@ -14,6 +14,7 @@ import java.net.URL;
 import java.sql.Date;
 import java.util.ResourceBundle;
 public class SessionsController implements Initializable {
+
     @FXML
     private TextField tf_filter;
     @FXML
@@ -39,6 +40,8 @@ public class SessionsController implements Initializable {
     @FXML
     private DatePicker datepicker_calendar;
     @FXML
+    private RadioButton button_radio_platit;
+    @FXML
     private TableView<Session> table_materie;
     @FXML
     private TableColumn<Session, Integer> column_id;
@@ -56,6 +59,8 @@ public class SessionsController implements Initializable {
     private TableColumn<Session, Date> column_data;
     @FXML
     private TableColumn<Session, Double> column_pret_total;
+    @FXML
+    private TableColumn<Session, Integer> column_platit;
 
     ObservableList<Session> listS;
     ObservableList<Session> dataList;
@@ -85,6 +90,7 @@ public class SessionsController implements Initializable {
         column_durata.setCellValueFactory(new PropertyValueFactory<Session, Integer>("durata"));
         column_data.setCellValueFactory(new PropertyValueFactory<Session, Date>("date"));
         column_pret_total.setCellValueFactory(new PropertyValueFactory<Session, Double>("pret_total"));
+        column_platit.setCellValueFactory(new PropertyValueFactory<Session, Integer>("platit"));
 
         listS = Utils.getAllSessions();
         table_materie.setItems(listS);
@@ -92,13 +98,6 @@ public class SessionsController implements Initializable {
 
     @FXML
     void search_session(){
-      //  column_id.setCellValueFactory(new PropertyValueFactory<Session, Integer>("id"));
-//        column_materie.setCellValueFactory(new PropertyValueFactory<Session, String>("materie"));
-//        column_id_student.setCellValueFactory(new PropertyValueFactory<Session, String>("IDstudent"));
-//        column_student.setCellValueFactory(new PropertyValueFactory<Session, String>("nume" + "prenume"));
-//        column_pret_per_ora.setCellValueFactory(new PropertyValueFactory<Session, Integer>("pret_per_ora"));
-//        column_durata.setCellValueFactory(new PropertyValueFactory<Session, Integer>("durata"));
-//        column_data.setCellValueFactory(new PropertyValueFactory<Session, Date>("data"));
         column_id.setCellValueFactory(new PropertyValueFactory<Session, Integer>("ID"));
         column_materie.setCellValueFactory(new PropertyValueFactory<Session, String>("materie"));
         column_id_student.setCellValueFactory(new PropertyValueFactory<Session, String>("idStudent"));
@@ -169,17 +168,21 @@ public class SessionsController implements Initializable {
         button_add.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                System.out.println(tf_materie.getText());
-                System.out.println(tf_pret_per_ora.getText());
-                System.out.println(combobox_student.getValue().substring(0,combobox_student.getValue().indexOf(" ")));
-                System.out.println(combobox_durata.getValue());
-                System.out.println(datepicker_calendar.getValue());
+//                System.out.println(tf_materie.getText());
+//                System.out.println(tf_pret_per_ora.getText());
+//                System.out.println(combobox_student.getValue().substring(0,combobox_student.getValue().indexOf(" ")));
+//                System.out.println(combobox_durata.getValue());
+//                System.out.println(datepicker_calendar.getValue());
+                int platit = button_radio_platit.isSelected()?1:0;
                 Session s = new Session(tf_materie.getText(),
                         CurrentUser.id,
                         Integer.parseInt(combobox_student.getValue().substring(0,combobox_student.getValue().indexOf(" "))),
                         Integer.parseInt(tf_pret_per_ora.getText()),
                         combobox_durata.getValue(),
-                        Date.valueOf(datepicker_calendar.getValue()));
+                        Date.valueOf(datepicker_calendar.getValue()),
+                        platit
+                        );
+
                 Utils.AddSession(s);
                 UpdateTableMeditatii();
             }

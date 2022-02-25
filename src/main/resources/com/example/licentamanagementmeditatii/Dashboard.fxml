@@ -10,25 +10,21 @@
       <Button fx:id="button_manage_students" layoutX="252.0" layoutY="498.0" mnemonicParsing="false" style="-fx-background-color: orange;" text="Manage Students" />
       <HBox layoutX="62.0" layoutY="52.0" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Label fx:id="label_welcome" alignment="CENTER" prefHeight="102.0" prefWidth="200.0" style="-fx-border-color: green; -fx-border-radius: 10;" text="Month Income" />
+            <Label fx:id="label_lunare" alignment="CENTER" prefHeight="102.0" prefWidth="200.0" style="-fx-border-color: green; -fx-border-radius: 10;" text="Month Income" />
          </children>
       </HBox>
       <Label layoutX="148.0" layoutY="29.0" text="Monthly" />
       <Label layoutX="448.0" layoutY="29.0" text="Debt" />
       <Label layoutX="749.0" layoutY="29.0" text="Paid" />
-      <HBox layoutX="61.0" layoutY="200.0" prefHeight="215.0" prefWidth="800.0">
-         <children>
-            <TableView prefHeight="215.0" prefWidth="802.0" style="-fx-border-radius: 10; -fx-background-radius: 10; -fx-border-color: black;">
-              <columns>
-                <TableColumn prefWidth="75.0" text="C1" />
-                <TableColumn prefWidth="75.0" text="C2" />
-              </columns>
-            </TableView>
-         </children>
-      </HBox>
-      <Label layoutX="121.0" layoutY="183.0" text="Pending Payments" />
+      <Label layoutX="425.0" layoutY="166.0" text="Pending Payments" />
       <Button fx:id="button_manage_sessions" layoutX="561.0" layoutY="498.0" mnemonicParsing="false" style="-fx-background-color: orange;" text="Manage Sessions" />
-      <Label fx:id="label_paid" alignment="CENTER" layoutX="649.0" layoutY="51.0" prefHeight="102.0" prefWidth="200.0" style="-fx-border-color: green; -fx-border-radius: 10;" text="Paid" />
-      <Label fx:id="label_debt" alignment="CENTER" layoutX="361.0" layoutY="52.0" prefHeight="100.0" prefWidth="200.0" style="-fx-border-color: red; -fx-border-radius: 10;" text="Debt" />
+      <Label fx:id="label_platite" alignment="CENTER" layoutX="649.0" layoutY="51.0" prefHeight="102.0" prefWidth="200.0" style="-fx-border-color: green; -fx-border-radius: 10;" text="Paid" />
+      <Label fx:id="label_neplatite" alignment="CENTER" layoutX="361.0" layoutY="52.0" prefHeight="100.0" prefWidth="200.0" style="-fx-border-color: red; -fx-border-radius: 10;" text="Debt" />
+      <TableView layoutX="252.0" layoutY="191.0" prefHeight="215.0" prefWidth="586.0" style="-fx-border-radius: 10; -fx-background-radius: 10; -fx-border-color: black;">
+        <columns>
+          <TableColumn prefWidth="75.0" text="C1" />
+          <TableColumn prefWidth="75.0" text="C2" />
+        </columns>
+      </TableView>
    </children>
 </AnchorPane>
