@@ -13,20 +13,27 @@
             <Label fx:id="label_lunare" alignment="CENTER" prefHeight="102.0" prefWidth="200.0" style="-fx-border-color: green; -fx-border-radius: 10;" text="Month Income" />
          </children>
       </HBox>
-      <Label layoutX="148.0" layoutY="29.0" text="Monthly" />
-      <Label layoutX="448.0" layoutY="29.0" text="Debt" />
-      <Label layoutX="749.0" layoutY="29.0" text="Paid" />
+      <Label layoutX="65.0" layoutY="29.0" text="Incasari potentiale luna selecatata" />
+      <Label layoutX="405.0" layoutY="29.0" text="Neplatit luna selectata" />
+      <Label layoutX="699.0" layoutY="29.0" text="Platit Luna Selectata" />
       <Label layoutX="425.0" layoutY="166.0" text="Pending Payments" />
       <Button fx:id="button_manage_sessions" layoutX="561.0" layoutY="498.0" mnemonicParsing="false" style="-fx-background-color: orange;" text="Manage Sessions" />
       <Label fx:id="label_platite" alignment="CENTER" layoutX="649.0" layoutY="51.0" prefHeight="102.0" prefWidth="200.0" style="-fx-border-color: green; -fx-border-radius: 10;" text="Paid" />
       <Label fx:id="label_neplatite" alignment="CENTER" layoutX="361.0" layoutY="52.0" prefHeight="100.0" prefWidth="200.0" style="-fx-border-color: red; -fx-border-radius: 10;" text="Debt" />
-      <TableView layoutX="252.0" layoutY="191.0" prefHeight="215.0" prefWidth="586.0" style="-fx-border-radius: 10; -fx-background-radius: 10; -fx-border-color: black;">
+      <TableView fx:id="table_nePlatit" layoutX="252.0" layoutY="191.0" prefHeight="215.0" prefWidth="586.0" style="-fx-border-radius: 10; -fx-background-radius: 10; -fx-border-color: black;">
         <columns>
-          <TableColumn prefWidth="75.0" text="C1" />
-          <TableColumn prefWidth="75.0" text="C2" />
+          <TableColumn fx:id="column_materie" prefWidth="75.0" text="Materia" />
+          <TableColumn fx:id="column_id_student" prefWidth="75.0" text="ID Student" />
+            <TableColumn fx:id="column_student" prefWidth="106.0" text="Student" />
+            <TableColumn fx:id="column_pret_per_ora" prefWidth="82.0" text="Pret per ora" />
+            <TableColumn fx:id="column_durata" prefWidth="52.0" text="durata" />
+            <TableColumn fx:id="column_data" prefWidth="110.0" text="data" />
+            <TableColumn fx:id="column_pret_total" prefWidth="73.0" text="pret total" />
         </columns>
       </TableView>
       <DatePicker fx:id="calendar_interval" layoutX="55.0" layoutY="200.0" />
       <Button fx:id="button_interval" layoutX="62.0" layoutY="274.0" mnemonicParsing="false" text="Invterval timp " />
+      <Label fx:id="label_total_neplatit" layoutX="769.0" layoutY="430.0" text="NUMERETEXT" />
+      <Label layoutX="688.0" layoutY="430.0" text="Total Neplatit:" />
    </children>
 </AnchorPane>

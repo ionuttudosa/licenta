@@ -168,11 +168,7 @@ public class SessionsController implements Initializable {
         button_add.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-//                System.out.println(tf_materie.getText());
-//                System.out.println(tf_pret_per_ora.getText());
-//                System.out.println(combobox_student.getValue().substring(0,combobox_student.getValue().indexOf(" ")));
-//                System.out.println(combobox_durata.getValue());
-//                System.out.println(datepicker_calendar.getValue());
+
                 int platit = button_radio_platit.isSelected()?1:0;
                 Session s = new Session(tf_materie.getText(),
                         CurrentUser.id,
@@ -189,22 +185,15 @@ public class SessionsController implements Initializable {
         });
 
 
-
-
-
         button_logout.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-//                search_user();
-//                UpdateTable();
                 Utils.changeScene(event, "Landing.fxml", "Welcome!", null);
             }
         });
         button_back.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-//                search_user();
-//                UpdateTable();
                 Utils.changeScene(event, "Dashboard.fxml", "Welcome!", null);
             }
 

@@ -12,6 +12,7 @@ import javafx.stage.Stage;
 import javax.swing.*;
 import java.io.IOException;
 import java.sql.*;
+import java.time.LocalDate;
 
 public class Utils {
     public static void changeScene(ActionEvent event, String fxmlFile, String title, String username) {
@@ -176,6 +177,49 @@ public class Utils {
             return null;
         }
 
+    }
+
+    public static ObservableList<Session> getPendingSessions(){
+
+        Connection conn = ConnectDb();
+        ObservableList<Session> list = FXCollections.observableArrayList();
+        try{
+            System.out.println(CurrentUser.current_date==null);
+            System.out.println("linia care vine");
+            if(CurrentUser.current_date == null){
+                CurrentUser.setCurrent_date();
+                System.out.println("blablabla");
+            }
+            System.out.println("superceva");
+            PreparedStatement ps = conn.prepareStatement("select m.platit, m.ID, m.materie, m.ID_student, m.pret_per_ora, m.durata, m.data, s.nume AS student_ln, s.prenume AS student_fn from meditatii AS m \n" +
+                    "INNER JOIN student AS s ON m.ID_student = s.ID\n" +
+                    "where ID_meditator = ? AND m.platit = 0 AND m.data <= ?");
+            ps.setInt(1,CurrentUser.id);
+            ps.setDate(2, Date.valueOf(LocalDate.now()));
+
+            ResultSet rs = ps.executeQuery();
+            System.out.println(rs);
+            while (rs.next()){
+                System.out.println("bbbbbbbb");
+                Session session = new Session(
+                        rs.getInt("ID"),
+                        rs.getString("materie"),
+                        CurrentUser.id,
+                        rs.getInt("ID_student"),
+                        rs.getString("student_ln") + " " + rs.getString("student_fn"),
+
+                        rs.getInt("pret_per_ora"),
+                        rs.getInt("durata"),
+                        rs.getDate("data"),
+                        rs.getInt("platit")
+
+                );
+                session.setPret_total(session.getPret_per_ora() * ((double)session.getDurata()/60));
+                list.add(session);
+            }
+        }catch (Exception e){
+        }
+        return list;
     }
 
     public static ObservableList<Session> getAllSessions(){
